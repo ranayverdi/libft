@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 16:32:11 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/05/31 20:12:28 by zeayverd         ###   ########.fr       */
+/*   Created: 2025/06/12 12:12:15 by zeayverd          #+#    #+#             */
+/*   Updated: 2025/07/02 14:30:22 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-
-char *ft_strchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
-	char *tmp;
-	tmp = (char *) s;
-	int i;
-	i = 0;
+	int		i;
+	int		result;
+	int		sign;
 
-	while(tmp[i])
+	i = 0;
+	result = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if(tmp[i] == c)
-		{
-			return (tmp + i);
-		}
+		if (nptr[i] == '-')
+			sign = -1;
 		i++;
 	}
-	return (NULL);
-}
-
-int main()
-{
-	printf("%s", ft_strchr("rana", 'a'));
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result *= 10;
+		result += nptr[i] - 48;
+		i++;
+	}
+	return (result * sign);
 }

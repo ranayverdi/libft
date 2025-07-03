@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 18:42:36 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/06/12 14:29:17 by zeayverd         ###   ########.fr       */
+/*   Created: 2025/06/12 18:26:36 by zeayverd          #+#    #+#             */
+/*   Updated: 2025/07/02 14:27:19 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-	
-	i = 0   ;
-	while(s[i] != '\0')
+	char	*tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	tmp = (char *) malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!tmp)
+		return (NULL);
+	if (!s1 || !s2)
 	{
+		return (NULL);
+	}
+	while (s1[i])
+	{
+		tmp[i] = s1[i];
 		i++;
 	}
-	return(i);
+	while (s2[j])
+	{
+		tmp[i + j] = s2[j];
+		j++;
+	}
+	tmp[i + j] = '\0';
+	return (tmp);
 }
-
-//int main()
-//{
-//	const char s[] = "naber";
-//	printf("%ld", ft_strlen(s)); 
-//}

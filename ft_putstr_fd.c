@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 14:18:02 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/06/12 14:33:56 by zeayverd         ###   ########.fr       */
+/*   Created: 2025/06/23 17:28:46 by zeayverd          #+#    #+#             */
+/*   Updated: 2025/07/02 14:27:09 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 
-
-char *ft_strdup(const char *s1)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char *tmp;
-	tmp = malloc(ft_strlen(s1) + 1);
-	int i;
+	int	i;
+
 	i = 0;
-	
-	while(s1[i])
+	while (s[i] != '\0')
 	{
-		tmp[i] = s1[i];
+		write(fd, &s[i], 1);
 		i++;
 	}
-	tmp[i] = '\0';
-	return (tmp);
-}
-
-int main()
-{
-	char *tmp = "merhaba";
-
-	printf("%s", ft_strdup(tmp));
 }

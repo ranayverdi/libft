@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 18:54:28 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/05/27 19:12:08 by zeayverd         ###   ########.fr       */
+/*   Created: 2025/06/16 16:43:48 by zeayverd          #+#    #+#             */
+/*   Updated: 2025/07/02 14:27:32 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-int ft_isalpha(int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-    if(c >= 'a' && c <= 'z')
-    {
-        return 1;
-    }
-    else if(c >= 'A' && c <= 'Z')
-    {
-        return 1;
-    }
-    else;
-        return 0;
-}
+	size_t		end;
+	size_t		start;
 
-int main()
-{   int c = 'a';
-    printf("%d", ft_isalpha(c));
+	if (!s1 || !set)
+		return (0);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }

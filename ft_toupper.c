@@ -6,24 +6,15 @@
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 19:16:39 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/05/30 19:20:25 by zeayverd         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:27:38 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if(c >= 'a' && c <= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
-		return(c - 32);
+		return (c - 32);
 	}
 	return (c);
-}
-
-int main()
-{
-	int c = 'm';
-	printf("%c", ft_toupper(c));
 }

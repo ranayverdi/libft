@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 14:34:11 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/06/12 13:47:06 by zeayverd         ###   ########.fr       */
+/*   Created: 2025/06/12 13:27:59 by zeayverd          #+#    #+#             */
+/*   Updated: 2025/07/02 14:27:58 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 
-void    ft_bzero(void *s, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char *tmp;
-	tmp = (unsigned char*)s;
-	int i;
-	n = 3;
-	i = 0;
-	while(i < n)
-	{
-		*tmp = '\0';
-		tmp++;
-		i++;
-	}
+	unsigned char	*tmp;
+
+	tmp = (unsigned char *) malloc(count * size);
+	if (!tmp)
+		return (0);
+	ft_bzero(tmp, count * size);
+	return (tmp);
 }
-
-//int main()
-//{
-	//char s[] = "rana";
-	//ft_bzero(s,4);
-//	printf("%c", s[1]);
-//}
-

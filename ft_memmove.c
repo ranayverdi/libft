@@ -6,48 +6,35 @@
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:27:46 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/05/30 18:30:32 by zeayverd         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:27:00 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *tmpdest;
-	char *tmpsrc;
-	tmpdest = (char *) dst;
-	tmpsrc = (char *) src;
-	int i;
+	unsigned char		*tmpdest;
+	unsigned char		*tmpsrc;
+	size_t				i;
+
+	tmpsrc = (unsigned char *) src;
+	tmpdest = (unsigned char *) dst;
 	i = 0;
-	if((char *) dst == NULL || (char *)src == NULL)
+	if (!dst && !src)
 	{
-		return (NULL);
+		return (0);
 	}
 	else if (dst < src)
 	{
 		while (i < len)
 		{
-			tmpdest[len] = tmpsrc[len];
+			tmpdest[i] = tmpsrc[i];
 			i++;
 		}
 	}
 	else if (dst > src)
-	{
 		while (len--)
 			tmpdest[len] = tmpsrc[len];
-	}
-	// tmpdest[len] = '\0';
 	return (tmpdest);
-	
-}
-
-int main()
-{
-	 char dst[] = "12345678";
-	 
-	 size_t n = 3;
-	 ft_memmove(dst + 2, dst, n);
-	 printf("%s", dst + 2);
 }

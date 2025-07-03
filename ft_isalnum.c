@@ -6,25 +6,18 @@
 /*   By: zeayverd <zeayverd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:05:33 by zeayverd          #+#    #+#             */
-/*   Updated: 2025/05/29 18:16:15 by zeayverd         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:27:51 by zeayverd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if(c >= '0' && c <= '9' || c >= 'a' && c <= 'z' ||  c >= 'A' && c <= 'Z')
-    {
-        return (1);
-    }
-    else
-        return (0);
-}
-
-int main()
-{
-    printf("%d", ft_isalnum('?'));
-    printf("%d", ft_isalnum('a')); 
+	if ((c >= '0' && c <= '9')
+		|| (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }
